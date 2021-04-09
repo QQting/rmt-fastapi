@@ -14,11 +14,11 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 
 # Download source codes
 RUN cd /root && \
-    git clone https://github.com/QQting/vue-element-admin-fastapi.git
+    git clone https://github.com/QQting/rmt-fastapi.git
 
 # Install dependent python packages
-RUN cd /root/vue-element-admin-fastapi/backend/app && \
+RUN cd /root/rmt-fastapi/app && \
     poetry install -q
 
-WORKDIR /root/vue-element-admin-fastapi/backend/app/app
-ENV LD_LIBRARY_PATH=/root/vue-element-admin-fastapi/backend/app/app/api/api_v1/robots/RMT_core
+WORKDIR /root/rmt-fastapi/app/app
+ENV LD_LIBRARY_PATH=/root/rmt-fastapi/app/app/api/api_v1/robots/RMT_core
