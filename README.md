@@ -10,6 +10,7 @@ ROS Management Tool - FastAPI example
 Build image from dockerfile:
 
 ```bash
+wget https://raw.githubusercontent.com/QQting/rmt_fastapi/main/Dockerfile
 docker build -t="rmt-fastapi" . 
 ```
 
