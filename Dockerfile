@@ -14,12 +14,20 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
     poetry config virtualenvs.create false
 
 # Download source codes
-RUN cd /root && \
-    git clone https://github.com/QQting/rmt-fastapi.git
+RUN mkdir -p /root/rmt_fastapi_ws/src
+    cd /root/rmt_fastapi_ws/src && \
+    git clone https://github.com/QQting/rmt_fastapi.git
 
 # Install dependent python packages
-RUN cd /root/rmt-fastapi/app && \
+RUN cd /root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app && \
     poetry install -q
 
-WORKDIR /root/rmt-fastapi/app/app
-ENV LD_LIBRARY_PATH=/root/rmt-fastapi/app/app/api/api_v1/robots/RMT_core
+# Build into ROS 2 package
+RUN cd /root/rmt_fastapi_ws && \
+    colcon build --symlink-install
+
+# Source the workspace env
+RUN source /root/rmt_fastapi_ws/install/local_setup.bash
+
+WORKDIR cd /root/rmt_fastapi_ws
+ENV LD_LIBRARY_PATH=/root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app/app/api/api_v1/robots/RMT_core

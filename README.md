@@ -19,17 +19,23 @@ Start the container from the built image:
 docker run -it -p 8080:8080 --network=host --rm rmt-fastapi
 ```
 
-In container, start the backend:
+In container, start the backend with ROS 2 command:
 
 ```bash
-# Run main.py in ~/rmt-fastapi/app/app/
+ros2 launch rmt_fastapi rmt_fastapi_launch.py
+```
+
+Alternatively, you can directly run the python program to start the backend:
+
+```bash
+cd /root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app/app/
 python main.py
 ```
 
-Open the URL in the host browser
+Then, open the URL in the host browser
 
 ```bash
 http://0.0.0.0:8080/docs
 ```
 
-Then you can now test the RESTful API made by FastAPI.
+Now, you can test the RESTful API.
