@@ -1,5 +1,6 @@
 # This dockerfile aims to build the RMT-FastAPI development environment on Ubuntu 20.04
-FROM ubuntu:focal
+#FROM ubuntu:focal
+FROM ros:foxy
 MAINTAINER Ting Chang <ting.chang@adlinktech.com>
 
 # Install the necessary tools
