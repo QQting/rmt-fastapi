@@ -19,13 +19,15 @@ Start the container from the built image:
 docker run -it -p 8080:8080 --network=host --rm rmt-fastapi
 ```
 
-In container, start the backend with ROS 2 command:
+In container, you have two options to start the backend:
+
+Option 1 - Use ROS 2 command:
 
 ```bash
 ros2 launch rmt_fastapi rmt_fastapi_launch.py
 ```
 
-Alternatively, you can directly run the python program to start the backend:
+Option 2 - Python call:
 
 ```bash
 cd /root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app/app/
