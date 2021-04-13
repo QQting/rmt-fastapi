@@ -29,5 +29,5 @@ RUN cd /root/rmt_fastapi_ws && \
 # Source the workspace env
 RUN /bin/bash -c "source /root/rmt_fastapi_ws/install/local_setup.bash"
 
-WORKDIR cd /root/rmt_fastapi_ws
+WORKDIR /root/rmt_fastapi_ws
 ENV LD_LIBRARY_PATH=/root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app/app/api/api_v1/robots/RMT_core
