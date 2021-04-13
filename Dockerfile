@@ -27,7 +27,7 @@ RUN cd /root/rmt_fastapi_ws && \
     colcon build --symlink-install
 
 # Source the workspace env
-RUN /bin/bash -c "source /root/rmt_fastapi_ws/install/local_setup.bash"
+RUN echo "source /root/rmt_fastapi_ws/install/local_setup.bash" >> /etc/bash.bashrc
 
 WORKDIR /root/rmt_fastapi_ws
 ENV LD_LIBRARY_PATH=/root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app/app/api/api_v1/robots/RMT_core
