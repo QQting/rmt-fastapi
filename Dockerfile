@@ -16,7 +16,10 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 # Download source codes
 RUN mkdir -p /root/rmt_fastapi_ws/src && \
     cd /root/rmt_fastapi_ws/src && \
-    git clone https://github.com/QQting/rmt_fastapi.git
+    git clone https://github.com/QQting/rmt_fastapi.git && \
+    git clone https://github.com/QQting/vue-element-admin-fastapi && \
+    cp -a vue-element-admin-fastapi/backend/app rmt_fastapi/rmt_fastapi/ && \
+    rm -rf vue-element-admin-fastapi
 
 # Install dependent python packages
 RUN cd /root/rmt_fastapi_ws/src/rmt_fastapi/rmt_fastapi/app && \
