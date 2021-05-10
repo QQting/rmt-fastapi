@@ -23,5 +23,4 @@ RUN cd /root/ && \
 RUN cd /root/rmt_fastapi/backend/app && \
     poetry install -q
 
-WORKDIR /root/rmt_fastapi
-ENV LD_LIBRARY_PATH=/root/rmt_fastapi/backend/app/app/api/api_v1/robots/RMT_core
+WORKDIR /root/rmt_fastapi/backend
