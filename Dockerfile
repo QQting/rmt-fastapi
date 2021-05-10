@@ -16,8 +16,12 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 RUN cd /root/ && \
     git clone https://github.com/QQting/rmt_fastapi.git && \
     git clone https://github.com/QQting/vue-element-admin-fastapi && \
-    cp -a vue-element-admin-fastapi/backend/app rmt_fastapi/backend/ && \
+    cp -a vue-element-admin-fastapi/backend rmt_fastapi/ && \
     rm -rf vue-element-admin-fastapi
+
+# Install RMT lib from deb file
+RUN cd /root/rmt_fastapi/backend/lib && \
+    dpkg -i *.deb
 
 # Install dependent python packages
 RUN cd /root/rmt_fastapi/backend/app && \
